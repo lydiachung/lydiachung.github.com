@@ -1,31 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-
-  <title><![CDATA[Category: jruby | My Octopress Blog]]></title>
-  <link href="http://lydiachung.github.com/blog/categories/jruby/atom.xml" rel="self"/>
-  <link href="http://lydiachung.github.com/"/>
-  <updated>2012-06-12T11:47:20-04:00</updated>
-  <id>http://lydiachung.github.com/</id>
-  <author>
-    <name><![CDATA[Your Name]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
-
-  
-  <entry>
-    <title type="html"><![CDATA[Performance Comparison: JRuby, Java & VFP]]></title>
-    <link href="http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/"/>
-    <updated>2012-06-11T14:42:00-04:00</updated>
-    <id>http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/areteinc/ds">source code</a></p>
-
-<p>command:
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Terminal </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jruby --profile.flat ds.rb >> profile.txt 2>>&amp;1</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>output result:
      total        self    children       calls  method
      -----        ----    --------       -----  ------
      21.36       10.61       10.75           1  DS.run
@@ -78,8 +50,3 @@
       0.00        0.00        0.00           2  Gem::Requirement#initialize
       0.00        0.00        0.00           9  Kernel.org
       0.00        0.00        0.00          15  Module#private
-</p>
-]]></content>
-  </entry>
-  
-</feed>

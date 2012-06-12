@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://lydiachung.github.com/atom.xml" rel="self"/>
   <link href="http://lydiachung.github.com/"/>
-  <updated>2012-06-11T16:48:07-04:00</updated>
+  <updated>2012-06-12T11:47:20-04:00</updated>
   <id>http://lydiachung.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,575 +14,182 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Installation Steps: VirtualBox, Ubuntu, Git, & Octopress]]></title>
+    <link href="http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/"/>
+    <updated>2012-06-12T11:09:00-04:00</updated>
+    <id>http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install</id>
+    <content type="html"><![CDATA[<h3>Installing VirtualBox & Ubuntu</h3>
+
+
+<ul>
+  <ul>
+    <li>Download VirtualBox from <a href="https://www.virtualbox.org/wiki/Downloads">here</a></li>
+    <li>Follow the instruction <a href="http://aruljohn.com/info/virtualbox/">here</a>
+      <ul>
+        <li>Enable PAE in the Process tab</li>
+      </ul>
+    </li>
+    <li>Set up shared folder (<a href="http://complete-concrete-concise.com/ubuntu-2/ubuntu-12-04/ubuntu-12-04-enabling-shared-folders-under-virtualbox">ref</a>)
+      <ul>
+        <li>Device > Install Guest Additions&#8230;</li>
+        <li>Restart</li>
+        <li>$ sudo usermod -a -G vboxsf  lydiachung</li>
+        <li>Restart</li>
+        <li>Home Folder > File System > media > sf_ubuntushare</li>
+      </ul>
+    </li>
+  </ul>
+</ul>
+
+
+
+
+<h3>Installing Git</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Generate SSH key <a href="https://help.github.com/articles/generating-ssh-keys">here</a></p>
+
+<h3>Installing Ruby 1.9.3</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install ruby1.9.1 --fix-missing
+</span><span class='line'>$ sudo apt-get install ruby1.9.1-dev --fix-missing
+</span><span class='line'>$ ruby --version</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Installing Octopress</h3>
+
+
+<p>Create a repo on GitHub and name repo &#8220;lydiachung/lydiachung.github.com&#8221;.</p>
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>$ cd octopress
+</span><span class='line'>$ ruby --version  # Should report Ruby 1.9.3
+</span><span class='line'>$ sudo gem install bundler
+</span><span class='line'>$ bundle install
+</span><span class='line'>$ rake install
+</span><span class='line'>$ rake setup_github_pages # enter repo => git@github.com:lydiachung/lydiachung.github.com.git
+</span><span class='line'>$ rake generate
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Creating Post</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["title"]
+</span><span class='line'>$ rake preview    # Watches, and mounts a webserver at http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Reference</h3>
+
+
+<p><a href="http://blog.moonflare.com/2011/10/25/installing-ruby-1-9-2-and-gems-on-ubuntu-11-10">Moonflare Blog: Installing Ruby 1.9.2 and gems on Ubuntu 11.10</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Performance Comparison: JRuby, Java & VFP]]></title>
     <link href="http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/"/>
     <updated>2012-06-11T14:42:00-04:00</updated>
     <id>http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p><a href="https://github.com/areteinc/ds">source code</a></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>abc...</span></code></pre></td></tr></table></div></figure>
+<p>command:</p>
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jruby --profile.flat ds.rb >> profile.txt 2>>&1</span></code></pre></td></tr></table></div></figure>
 
 
-<p><html>
-<head>
-  <style media="all" type="text/css"></p>
+<p>output result:</p>
 
-<pre><code>table {
-  border-collapse: collapse;
-  border: 1px solid #CCC;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 9pt;
-  line-height: normal;
-  width: 100%;
-}
-
-th {
-  text-align: center;
-  border-top: 1px solid #FB7A31;
-  border-bottom: 1px solid #FB7A31;
-  background: #FFC;
-  padding: 0.3em;
-  border-left: 1px solid silver;
-}
-
-tr.break td {
-  border: 0;
-  border-top: 1px solid #FB7A31;
-  padding: 0;
-  margin: 0;
-}
-
-tr.method td {
-  font-weight: bold;
-}
-
-td {
-  padding: 0.3em;
-}
-
-td:first-child {
-  width: 190px;
-  }
-
-td {
-  border-left: 1px solid #CCC;
-  text-align: center;
-}
-
-.method_name {
-  text-align: left;
-}
+<pre><code> total        self    children       calls  method
+ -----        ----    --------       -----  ------
+ 21.36       10.61       10.75           1  DS.run
+  9.02        0.36        8.66     1000000  InvNode#CalcDS
+  8.66        8.66        0.00     1000000  DS.CalcDS
+  1.72        0.35        1.37     1000015  Class#new
+  1.34        1.24        0.10     1000000  InvNode#initialize
+  0.89        0.05        0.85          64  Kernel.require
+  0.60        0.13        0.47          14  Kernel.load
+  0.43        0.00        0.43          18  Kernel.require
+  0.12        0.12        0.01          30  JavaUtilities.get_proxy_or_package_under_package
+  0.10        0.10        0.00     1000003  BasicObject#initialize
+  0.05        0.00        0.04           6  Java::OrgJruby.method_missing
+  0.05        0.05        0.00         267  Class#inherited
+  0.03        0.03        0.00           1  Time.now
+  0.03        0.03        0.00           4  Float#to_s
+  0.03        0.01        0.02           7  Array#each
+  0.02        0.00        0.02           1  Java::OrgJrubyCompilerImpl.method_missing
+  0.02        0.02        0.00           2  Array#initialize
+  0.01        0.00        0.01          61  Object.method_added
+  0.01        0.00        0.01           1  Win32API#initialize
+  0.01        0.00        0.01           1  Java::OrgJrubyOrgObjectwebAsmUtil.method_missing
+  0.01        0.01        0.00          48  Module#initialize_copy
+  0.01        0.00        0.01           5  Java::Java.method_missing
+  0.01        0.00        0.01         127  Object.method_added
+  0.01        0.01        0.00           1  FFI::Function.new
+  0.01        0.01        0.00         185  String#=~
+  0.01        0.00        0.00          30  Module#module_eval
+  0.01        0.00        0.01           2  Java::OrgJrubyOrgObjectwebAsm.method_missing
+  0.01        0.00        0.01           1  Module#attr
+  0.01        0.01        0.00           1  Win32API(singleton)#call
+  0.01        0.00        0.01           2  Java::OrgJrubyCompiler.method_missing
+  0.01        0.00        0.01           1  Java::OrgJrubyRuntime.method_missing
+  0.00        0.00        0.00          25  Gem::Deprecate.deprecate
+  0.00        0.00        0.00          17  Module#include
+  0.00        0.00        0.00           1  Java::OrgJrubyLexerYacc.method_missing
+  0.00        0.00        0.00         313  Kernel.respond_to?
+  0.00        0.00        0.00           2  Java::JavaIo.method_missing
+  0.00        0.00        0.00           2  Java::Org.method_missing
+  0.00        0.00        0.00           1  Hash#reject
+  0.00        0.00        0.00           4  Module#module_function
+  0.00        0.00        0.00          27  JavaUtilities.get_package_module_dot_format
+  0.00        0.00        0.00          32  Module#attr_accessor
+  0.00        0.00        0.00          86  Module#alias_method
+  0.00        0.00        0.00           2  JavaInterfaceTemplate.append_features
+  0.00        0.00        0.00          90  BasicObject#!=
+  0.00        0.00        0.00          18  Kernel.java
+  0.00        0.00        0.00           1  Java::JavaUtil.method_missing
+  0.00        0.00        0.00           2  Gem::Requirement.default
+  0.00        0.00        0.00           2  Gem::Requirement#initialize
+  0.00        0.00        0.00           9  Kernel.org
+  0.00        0.00        0.00          15  Module#private
 </code></pre>
-
-<p>  </style>
-  </head></p>
-
-<p><body></p>
-
-<h1>Profile Report</h1>
-
-
-<h3>Total time: 21.22</h3>
-
-
-<table>
-  <tr>
-    <th> %Total</th>
-    <th> %Self</th>
-    <th> Total</th>
-    <th> Self</th>
-    <th> Children</th>
-    <th> Calls</th>
-    <th>Name</th>
-  </tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='method'>
-  <td>100%</td>
-  <td>0%</td>
-  <td>21.22</td>
-  <td>0.00</td>
-  <td>21.22</td>
-  <td>0</td>
-  <td><a name='(top)'>(top)</a></td>
-</tr>
-<!-- 20504990118 --><tr>
-  <td></td>
-  <td></td>
-  <td>20.50</td>
-  <td>10.78</td>
-  <td>9.73</td>
-  <td>1/1</td>
-  <td><a href='#DS_run'>DS.run</a></td>
-</tr>
-<!-- 433785752 --><tr>
-  <td></td>
-  <td></td>
-  <td>0.43</td>
-  <td>0.10</td>
-  <td>0.34</td>
-  <td>14/14</td>
-  <td><a href='#Kernel_load'>Kernel.load</a></td>
-</tr>
-<!-- 273069530 --><tr>
-  <td></td>
-  <td></td>
-  <td>0.27</td>
-  <td>0.00</td>
-  <td>0.27</td>
-  <td>1/18</td>
-  <td><a href='#Kernel_require'>Kernel.require</a></td>
-</tr>
-<!-- 5697273 --><!-- 1298056 --><!-- 934276 --><!-- 550864 --><!-- 517374 --><!-- 133578 --><!-- 26947 --><!-- 26177 --><!-- 22327 --><!-- 8854 --><tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>20.50</td>
-  <td>10.78</td>
-  <td>9.73</td>
-  <td>1/1</td>
-  <td><a href='#(top)'>(top)</a></td>
-</tr>
-<tr class='method'>
-  <td>96%</td>
-  <td>50%</td>
-  <td>20.50</td>
-  <td>10.78</td>
-  <td>9.73</td>
-  <td>1</td>
-  <td><a name='DS_run'>DS.run</a></td>
-</tr>
-<!-- 8309255367 --><tr>
-  <td></td>
-  <td></td>
-  <td>8.31</td>
-  <td>0.33</td>
-  <td>7.98</td>
-  <td>1000000/1000000</td>
-  <td><a href='#InvNode_CalcDS'>InvNode#CalcDS</a></td>
-</tr>
-<!-- 1414743692 --><tr>
-  <td></td>
-  <td></td>
-  <td>1.41</td>
-  <td>0.33</td>
-  <td>1.08</td>
-  <td>1000002/1000015</td>
-  <td><a href='#Class_new'>Class#new</a></td>
-</tr>
-<!-- 3042652 --><!-- 413438 --><!-- 25408 --><!-- 15784 --><!-- 14629 --><tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>8.31</td>
-  <td>0.33</td>
-  <td>7.98</td>
-  <td>1000000/1000000</td>
-  <td><a href='#DS_run'>DS.run</a></td>
-</tr>
-<tr class='method'>
-  <td>39%</td>
-  <td>1%</td>
-  <td>8.31</td>
-  <td>0.33</td>
-  <td>7.98</td>
-  <td>1000000</td>
-  <td><a name='InvNode_CalcDS'>InvNode#CalcDS</a></td>
-</tr>
-<!-- 7982589667 --><tr>
-  <td></td>
-  <td></td>
-  <td>7.98</td>
-  <td>7.98</td>
-  <td>0.00</td>
-  <td>1000000/1000000</td>
-  <td><a href='#DS_CalcDS'>DS.CalcDS</a></td>
-</tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>7.98</td>
-  <td>7.98</td>
-  <td>0.00</td>
-  <td>1000000/1000000</td>
-  <td><a href='#InvNode_CalcDS'>InvNode#CalcDS</a></td>
-</tr>
-<tr class='method'>
-  <td>37%</td>
-  <td>37%</td>
-  <td>7.98</td>
-  <td>7.98</td>
-  <td>0.00</td>
-  <td>1000000</td>
-  <td><a name='DS_CalcDS'>DS.CalcDS</a></td>
-</tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>1.41</td>
-  <td>0.33</td>
-  <td>1.08</td>
-  <td>1000002/1000015</td>
-  <td><a href='#DS_run'>DS.run</a></td>
-</tr>
-<tr class='method'>
-  <td>6%</td>
-  <td>1%</td>
-  <td>1.43</td>
-  <td>0.33</td>
-  <td>1.10</td>
-  <td>1000015</td>
-  <td><a name='Class_new'>Class#new</a></td>
-</tr>
-<!-- 1070585133 --><tr>
-  <td></td>
-  <td></td>
-  <td>1.07</td>
-  <td>0.96</td>
-  <td>0.11</td>
-  <td>1000000/1000000</td>
-  <td><a href='#InvNode_initialize'>InvNode#initialize</a></td>
-</tr>
-<!-- 13263482 --><!-- 12635243 --><!-- 1999434 --><!-- 759509 --><!-- 126649 --><!-- 45809 --><!-- 22713 --><!-- 19248 --><tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>1.07</td>
-  <td>0.96</td>
-  <td>0.11</td>
-  <td>1000000/1000000</td>
-  <td><a href='#Class_new'>Class#new</a></td>
-</tr>
-<tr class='method'>
-  <td>5%</td>
-  <td>4%</td>
-  <td>1.07</td>
-  <td>0.96</td>
-  <td>0.11</td>
-  <td>1000000</td>
-  <td><a name='InvNode_initialize'>InvNode#initialize</a></td>
-</tr>
-<!-- 111130060 --><tr>
-  <td></td>
-  <td></td>
-  <td>0.11</td>
-  <td>0.11</td>
-  <td>0.00</td>
-  <td>1000000/1000003</td>
-  <td><a href='#BasicObject_initialize'>BasicObject#initialize</a></td>
-</tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>0.27</td>
-  <td>0.00</td>
-  <td>0.27</td>
-  <td>18/64</td>
-  <td><a href='#Kernel_require'>Kernel.require</a></td>
-</tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>0.33</td>
-  <td>0.04</td>
-  <td>0.29</td>
-  <td>2/64</td>
-  <td><a href='#Kernel_load'>Kernel.load</a></td>
-</tr>
-<tr class='method'>
-  <td>2%</td>
-  <td>0%</td>
-  <td>0.60</td>
-  <td>0.04</td>
-  <td>0.56</td>
-  <td>64</td>
-  <td><a name='Kernel_require'>Kernel.require</a></td>
-</tr>
-<!-- 43594918 --><!-- 24672272 --><!-- 18792918 --><!-- 12805391 --><!-- 11081966 --><!-- 8609427 --><!-- 5148338 --><!-- 5037082 --><!-- 4676769 --><!-- 4529717 --><!-- 4463124 --><!-- 4162089 --><!-- 3788302 --><!-- 3752886 --><!-- 3178540 --><!-- 2802827 --><!-- 2503331 --><!-- 2315095 --><!-- 2183824 --><!-- 2169199 --><!-- 2143406 --><!-- 2086049 --><!-- 2005213 --><!-- 1917825 --><!-- 1907432 --><!-- 1731894 --><!-- 1723426 --><!-- 1666068 --><!-- 1589077 --><!-- 1537879 --><!-- 1462043 --><!-- 1119052 --><!-- 1089411 --><!-- 1075938 --><!-- 991634 --><!-- 921187 --><!-- 906944 --><!-- 878843 --><!-- 758738 --><!-- 702535 --><!-- 689447 --><!-- 627470 --><!-- 595519 --><!-- 502743 --><!-- 482344 --><!-- 463097 --><!-- 456937 --><!-- 450007 --><!-- 417289 --><!-- 413437 --><!-- 383026 --><!-- 354155 --><!-- 342603 --><!-- 298722 --><!-- 291792 --><!-- 281784 --><!-- 182851 --><!-- 170533 --><!-- 149746 --><!-- 145512 --><!-- 139352 --><!-- 123569 --><!-- 113560 --><!-- 99317 --><!-- 86614 --><!-- 80070 --><!-- 76605 --><!-- 75066 --><!-- 71984 --><!-- 62362 --><!-- 58897 --><!-- 56200 --><!-- 43500 --><!-- 43499 --><!-- 40805 --><!-- 39265 --><!-- 35031 --><!-- 30411 --><!-- 30027 --><!-- 29642 --><!-- 28486 --><!-- 19633 --><!-- 16553 --><!-- 15398 --><!-- 12703 --><!-- 8084 --><!-- 7700 --><!-- 6929 --><!-- 5390 --><!-- 3465 --><!-- 1540 --><!-- 1539 --><!-- 0 --><!-- 0 --><tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>0.43</td>
-  <td>0.10</td>
-  <td>0.34</td>
-  <td>14/14</td>
-  <td><a href='#(top)'>(top)</a></td>
-</tr>
-<tr class='method'>
-  <td>2%</td>
-  <td>0%</td>
-  <td>0.43</td>
-  <td>0.10</td>
-  <td>0.34</td>
-  <td>14</td>
-  <td><a name='Kernel_load'>Kernel.load</a></td>
-</tr>
-<!-- 328654127 --><tr>
-  <td></td>
-  <td></td>
-  <td>0.33</td>
-  <td>0.04</td>
-  <td>0.29</td>
-  <td>2/64</td>
-  <td><a href='#Kernel_require'>Kernel.require</a></td>
-</tr>
-<!-- 1881256 --><!-- 1656443 --><!-- 1355026 --><!-- 843044 --><!-- 449623 --><!-- 163608 --><!-- 151670 --><!-- 100472 --><!-- 78915 --><!-- 78915 --><!-- 78530 --><!-- 59668 --><!-- 38111 --><tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>0.27</td>
-  <td>0.00</td>
-  <td>0.27</td>
-  <td>1/18</td>
-  <td><a href='#(top)'>(top)</a></td>
-</tr>
-<tr class='method'>
-  <td>1%</td>
-  <td>0%</td>
-  <td>0.27</td>
-  <td>0.00</td>
-  <td>0.27</td>
-  <td>18</td>
-  <td><a name='Kernel_require'>Kernel.require</a></td>
-</tr>
-<!-- 272851262 --><tr>
-  <td></td>
-  <td></td>
-  <td>0.27</td>
-  <td>0.00</td>
-  <td>0.27</td>
-  <td>18/64</td>
-  <td><a href='#Kernel_require'>Kernel.require</a></td>
-</tr>
-<!-- 700228 --><!-- 60435 --><tr class='break'><td colspan='7'></td></tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td>0.11</td>
-  <td>0.11</td>
-  <td>0.00</td>
-  <td>1000000/1000003</td>
-  <td><a href='#InvNode_initialize'>InvNode#initialize</a></td>
-</tr>
-<tr class='method'>
-  <td>0%</td>
-  <td>0%</td>
-  <td>0.11</td>
-  <td>0.11</td>
-  <td>0.00</td>
-  <td>1000003</td>
-  <td><a name='BasicObject_initialize'>BasicObject#initialize</a></td>
-</tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 5683800 --><!-- 129343 --><!-- 34645 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 43314287 --><!-- 16169 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 6999177 --><!-- 6891397 --><!-- 3348302 --><!-- 1006268 --><!-- 919265 --><!-- 805317 --><!-- 656726 --><!-- 525054 --><!-- 478879 --><!-- 334519 --><!-- 292563 --><!-- 115485 --><!-- 108941 --><!-- 45810 --><!-- 31565 --><!-- 26562 --><!-- 18479 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 18092 --><!-- 6929 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 10198504 --><!-- 1142149 --><!-- 523533 --><!-- 461941 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 8179827 --><!-- 83145 --><!-- 53122 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 11040777 --><!-- 2309 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 684443 --><!-- 275626 --><!-- 268307 --><!-- 261388 --><!-- 107404 --><!-- 99697 --><!-- 78530 --><!-- 74680 --><!-- 15013 --><!-- 0 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 8350354 --><!-- 14629 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 1179104 --><!-- 612843 --><!-- 480030 --><!-- 254067 --><!-- 57354 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 5607194 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 4945848 --><!-- 6159 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 235974 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 2889825 --><!-- 324128 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 2988759 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 4087793 --><!-- 3465 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 3693219 --><!-- 6544 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 3719010 --><!-- 2310 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 514300 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 1549427 --><!-- 828799 --><!-- 635938 --><!-- 33874 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 3073063 --><!-- 8469 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 1390828 --><!-- 709464 --><!-- 445773 --><!-- 89694 --><!-- 83916 --><!-- 61207 --><!-- 21171 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 2768567 --><!-- 2694 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 871526 --><!-- 114324 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 95854 --><!-- 18864 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 2268131 --><!-- 2310 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 857671 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 2022917 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 2015602 --><!-- 5005 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 1258020 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 1406226 --><!-- 173613 --><!-- 58897 --><!-- 48504 --><!-- 18092 --><!-- 15398 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 17323 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 446543 --><!-- 92772 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 1614484 --><!-- 3849 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 385337 --><!-- 33490 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 881923 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 237130 --><!-- 99317 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 1018965 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 1298824 --><!-- 19633 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 97392 --><!-- 38495 --><!-- 12318 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 242904 --><!-- 23097 --><!-- 8084 --><!-- 0 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 93158 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 970461 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 993943 --><!-- 10779 --><!-- 3465 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 85459 --><!-- 24637 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 330675 --><!-- 203255 --><!-- 25021 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 811094 --><!-- 40804 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 506981 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 800313 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 0 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 881538 --><!-- 3079 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 686754 --><!-- 74296 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 845737 --><!-- 4234 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 30025 --><!-- 16168 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 835343 --><!-- 2310 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 214803 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 557409 --><!-- 102012 --><!-- 9239 --><!-- 4234 --><!-- 0 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 560104 --><!-- 30411 --><!-- 7698 --><!-- 7313 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 711389 --><!-- 2695 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 664810 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 27331 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 654032 --><!-- 2309 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 448467 --><!-- 84688 --><!-- 13473 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 306805 --><!-- 169378 --><!-- 27331 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 552790 --><!-- 4620 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 386104 --><!-- 6930 --><!-- 6929 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 223273 --><!-- 55433 --><!-- 20402 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 463480 --><!-- 7699 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 51199 --><!-- 4234 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 40804 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 69291 --><!-- 26562 --><!-- 18863 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 404968 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 52737 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 56588 --><!-- 12703 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 6929 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 53893 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 11163 --><!-- 5774 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 330673 --><!-- 28871 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 97392 --><!-- 45040 --><!-- 17708 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 342221 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 319894 --><!-- 28101 --><!-- 5774 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 282937 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 134347 --><!-- 47734 --><!-- 39265 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 77760 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 39265 --><!-- 36955 --><!-- 4235 --><!-- 3080 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 119335 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 16938 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 145511 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 70831 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 20787 --><!-- 18862 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 35801 --><tr class='break'><td colspan='7'></td></tr>
-<!-- 150130 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 24251 --><!-- 4619 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 116641 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 8468 --><!-- 4620 --><!-- 3080 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 15398 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 10007 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 10779 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 30411 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<!-- 0 --><tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-<tr class='break'><td colspan='7'></td></tr>
-</table>
-
-
-<p></body>
-</html></p>
 ]]></content>
   </entry>
   

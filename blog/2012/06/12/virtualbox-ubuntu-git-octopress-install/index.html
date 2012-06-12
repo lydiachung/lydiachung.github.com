@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
+  <title>Installation Steps: VirtualBox, Ubuntu, Git, & Octopress - My Octopress Blog</title>
   <meta name="author" content="Your Name">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://lydiachung.github.com/">
+  <link rel="canonical" href="http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,15 +62,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/">Installation Steps: VirtualBox, Ubuntu, Git, & Octopress</a></h1>
+      <h1 class="entry-title">Installation Steps: VirtualBox, Ubuntu, Git, & Octopress</h1>
     
     
       <p class="meta">
@@ -93,7 +90,7 @@
   </header>
 
 
-  <div class="entry-content"><h3>Installing VirtualBox & Ubuntu</h3>
+<div class="entry-content"><h3>Installing VirtualBox & Ubuntu</h3>
 
 
 <ul>
@@ -194,22 +191,16 @@
 
 <p><a href="http://blog.moonflare.com/2011/10/25/installing-ruby-1-9-2-and-gems-on-ubuntu-11-10">Moonflare Blog: Installing Ruby 1.9.2 and gems on Ubuntu 11.10</a></p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/11/ruby-java-vfp-performance/">Performance Comparison: JRuby, Java & VFP</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
 
 
 
@@ -221,90 +212,32 @@
   
 
 
-<time datetime="2012-06-11T14:42:00-04:00" pubdate data-updated="true">Jun 11<span>th</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-06-12T11:09:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2012</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/areteinc/ds">source code</a></p>
-
-<p>command:</p>
-
-<figure class='code'><figcaption><span>Terminal </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jruby --profile.flat ds.rb >> profile.txt 2>>&1</span></code></pre></td></tr></table></div></figure>
-
-
-<p>output result:</p>
-
-<pre><code> total        self    children       calls  method
- -----        ----    --------       -----  ------
- 21.36       10.61       10.75           1  DS.run
-  9.02        0.36        8.66     1000000  InvNode#CalcDS
-  8.66        8.66        0.00     1000000  DS.CalcDS
-  1.72        0.35        1.37     1000015  Class#new
-  1.34        1.24        0.10     1000000  InvNode#initialize
-  0.89        0.05        0.85          64  Kernel.require
-  0.60        0.13        0.47          14  Kernel.load
-  0.43        0.00        0.43          18  Kernel.require
-  0.12        0.12        0.01          30  JavaUtilities.get_proxy_or_package_under_package
-  0.10        0.10        0.00     1000003  BasicObject#initialize
-  0.05        0.00        0.04           6  Java::OrgJruby.method_missing
-  0.05        0.05        0.00         267  Class#inherited
-  0.03        0.03        0.00           1  Time.now
-  0.03        0.03        0.00           4  Float#to_s
-  0.03        0.01        0.02           7  Array#each
-  0.02        0.00        0.02           1  Java::OrgJrubyCompilerImpl.method_missing
-  0.02        0.02        0.00           2  Array#initialize
-  0.01        0.00        0.01          61  Object.method_added
-  0.01        0.00        0.01           1  Win32API#initialize
-  0.01        0.00        0.01           1  Java::OrgJrubyOrgObjectwebAsmUtil.method_missing
-  0.01        0.01        0.00          48  Module#initialize_copy
-  0.01        0.00        0.01           5  Java::Java.method_missing
-  0.01        0.00        0.01         127  Object.method_added
-  0.01        0.01        0.00           1  FFI::Function.new
-  0.01        0.01        0.00         185  String#=~
-  0.01        0.00        0.00          30  Module#module_eval
-  0.01        0.00        0.01           2  Java::OrgJrubyOrgObjectwebAsm.method_missing
-  0.01        0.00        0.01           1  Module#attr
-  0.01        0.01        0.00           1  Win32API(singleton)#call
-  0.01        0.00        0.01           2  Java::OrgJrubyCompiler.method_missing
-  0.01        0.00        0.01           1  Java::OrgJrubyRuntime.method_missing
-  0.00        0.00        0.00          25  Gem::Deprecate.deprecate
-  0.00        0.00        0.00          17  Module#include
-  0.00        0.00        0.00           1  Java::OrgJrubyLexerYacc.method_missing
-  0.00        0.00        0.00         313  Kernel.respond_to?
-  0.00        0.00        0.00           2  Java::JavaIo.method_missing
-  0.00        0.00        0.00           2  Java::Org.method_missing
-  0.00        0.00        0.00           1  Hash#reject
-  0.00        0.00        0.00           4  Module#module_function
-  0.00        0.00        0.00          27  JavaUtilities.get_package_module_dot_format
-  0.00        0.00        0.00          32  Module#attr_accessor
-  0.00        0.00        0.00          86  Module#alias_method
-  0.00        0.00        0.00           2  JavaInterfaceTemplate.append_features
-  0.00        0.00        0.00          90  BasicObject#!=
-  0.00        0.00        0.00          18  Kernel.java
-  0.00        0.00        0.00           1  Java::JavaUtil.method_missing
-  0.00        0.00        0.00           2  Gem::Requirement.default
-  0.00        0.00        0.00           2  Gem::Requirement#initialize
-  0.00        0.00        0.00           9  Kernel.org
-  0.00        0.00        0.00          15  Module#private
-</code></pre>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/" data-via="" data-counturl="http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/11/ruby-java-vfp-performance/" title="Previous Post: Performance Comparison: JRuby, Java & VFP">&laquo; Performance Comparison: JRuby, Java & VFP</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -329,6 +262,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
