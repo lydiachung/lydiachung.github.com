@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Installation Steps: VirtualBox, Ubuntu, Git, & Octopress - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Installing VirtualBox & Ubuntu Download VirtualBox from here Follow the instruction here Enable PAE in the Process tab Set up shared folder (ref) &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:lydiachung.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Installation Steps: VirtualBox, Ubuntu, Git, & Octopress</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-12T11:09:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>Installing VirtualBox & Ubuntu</h3>
+
+
+<ul>
+  <ul>
+    <li>Download VirtualBox from <a href="https://www.virtualbox.org/wiki/Downloads">here</a></li>
+    <li>Follow the instruction <a href="http://aruljohn.com/info/virtualbox/">here</a>
+      <ul>
+        <li>Enable PAE in the Process tab</li>
+      </ul>
+    </li>
+    <li>Set up shared folder (<a href="http://complete-concrete-concise.com/ubuntu-2/ubuntu-12-04/ubuntu-12-04-enabling-shared-folders-under-virtualbox">ref</a>)
+      <ul>
+        <li>Device > Install Guest Additions&#8230;</li>
+        <li>Restart</li>
+        <li>$ sudo usermod -a -G vboxsf  lydiachung</li>
+        <li>Restart</li>
+        <li>Home Folder > File System > media > sf_ubuntushare</li>
+      </ul>
+    </li>
+  </ul>
+</ul>
+
+
+
+
+<h3>Installing Git</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Generate SSH key <a href="https://help.github.com/articles/generating-ssh-keys">here</a></p>
+
+<h3>Installing Ruby 1.9.3</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install ruby1.9.1 --fix-missing
+</span><span class='line'>$ sudo apt-get install ruby1.9.1-dev --fix-missing
+</span><span class='line'>$ ruby --version</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Installing Octopress</h3>
+
+
+<p>Create a repo on GitHub and name repo &#8220;lydiachung/lydiachung.github.com&#8221;.</p>
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>$ cd octopress
+</span><span class='line'>$ ruby --version  # Should report Ruby 1.9.3
+</span><span class='line'>$ sudo gem install bundler
+</span><span class='line'>$ bundle install
+</span><span class='line'>$ rake install
+</span><span class='line'>$ rake setup_github_pages # enter repo => git@github.com:lydiachung/lydiachung.github.com.git
+</span><span class='line'>$ rake generate
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Creating Post</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["title"]
+</span><span class='line'>$ rake preview    # Watches, and mounts a webserver at http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Reference</h3>
+
+
+<p><a href="http://blog.moonflare.com/2011/10/25/installing-ruby-1-9-2-and-gems-on-ubuntu-11-10">Moonflare Blog: Installing Ruby 1.9.2 and gems on Ubuntu 11.10</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-12T11:09:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/" data-via="" data-counturl="http://lydiachung.github.com/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/11/ruby-java-vfp-performance/" title="Previous Post: Performance Comparison: JRuby, Java & VFP">&laquo; Performance Comparison: JRuby, Java & VFP</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/12/jruby-deploy/" title="Next Post: JRuby Deployment">JRuby Deployment &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/ruby-sql-injection/">Ruby SQL Injection & Security Vulnerabilities</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/ruby-framework/">Ruby Framework</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/jruby-deploy/">JRuby Deployment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/">Installation Steps: VirtualBox, Ubuntu, Git, & Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/11/ruby-java-vfp-performance/">Performance Comparison: JRuby, Java & VFP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

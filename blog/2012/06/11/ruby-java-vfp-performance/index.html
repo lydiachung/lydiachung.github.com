@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Performance Comparison: JRuby, Java & VFP - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="ds.rb & 1 million node count Language Timing Java 7 1.7 JRuby 1.6 (Java 6) 13.9 JRuby 1.7 (Java 7) 14.6 JRuby 1.7 w/ invokedynamic (Java 7) 14.9 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:lydiachung.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Performance Comparison: JRuby, Java & VFP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-11T14:42:00-04:00" pubdate data-updated="true">Jun 11<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><table border="1">
+    <caption>ds.rb & 1 million node count</caption>
+    <tr><th>Language</th>                                                               <th>Timing</th> </tr>
+    <tr><td>Java 7</td>                                                                 <td> 1.7</td>   </tr>
+    <tr><td>JRuby 1.6 (Java 6)</td>                                         <td>13.9</td>   </tr>
+    <tr><td>JRuby 1.7 (Java 7)</td>                                         <td>14.6</td>   </tr>
+    <tr><td>JRuby 1.7 w/ invokedynamic (Java 7)</td>        <td>14.9</td>   </tr>
+    <tr><td>JRuby 1.7 w/ &#8211;server (Java 7)</td>                 <td> 8.0</td>   </tr>
+</table>
+
+
+
+
+<p></p>
+
+
+
+
+<table border="1">
+    <caption>loop.rb & 1 million node count</caption>
+    <tr><th>Language</th>                                                               <th>Timing</th> </tr>
+    <tr><td>Java 7</td>                                                                 <td>0.002</td>  </tr>
+    <tr><td>JRuby 1.6 (Java 6)</td>                                         <td>0.050</td>  </tr>
+    <tr><td>JRuby 1.7 (Java 6)</td>                                         <td>0.082</td>  </tr>
+    <tr><td>JRuby 1.7 (Java 7)</td>                                         <td>0.089</td>  </tr>
+    <tr><td>JRuby 1.7 w/ invokedynamic (Java 7)</td>        <td>0.089</td>  </tr>
+</table>
+
+
+
+
+<p></p>
+
+
+<p><a href="https://github.com/areteinc/ds">source code</a></p>
+
+<p>command:</p>
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jruby --profile.flat ds.rb >> profile.txt 2>>&1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>output result:</p>
+
+<pre><code> total        self    children       calls  method
+ -----        ----    --------       -----  ------
+ 21.36       10.61       10.75           1  DS.run
+  9.02        0.36        8.66     1000000  InvNode#CalcDS
+  8.66        8.66        0.00     1000000  DS.CalcDS
+  1.72        0.35        1.37     1000015  Class#new
+  1.34        1.24        0.10     1000000  InvNode#initialize
+  0.89        0.05        0.85          64  Kernel.require
+  0.60        0.13        0.47          14  Kernel.load
+  0.43        0.00        0.43          18  Kernel.require
+  0.12        0.12        0.01          30  JavaUtilities.get_proxy_or_package_under_package
+  0.10        0.10        0.00     1000003  BasicObject#initialize
+  0.05        0.00        0.04           6  Java::OrgJruby.method_missing
+  0.05        0.05        0.00         267  Class#inherited
+  0.03        0.03        0.00           1  Time.now
+  0.03        0.03        0.00           4  Float#to_s
+  0.03        0.01        0.02           7  Array#each
+  0.02        0.00        0.02           1  Java::OrgJrubyCompilerImpl.method_missing
+  0.02        0.02        0.00           2  Array#initialize
+  0.01        0.00        0.01          61  Object.method_added
+  0.01        0.00        0.01           1  Win32API#initialize
+  0.01        0.00        0.01           1  Java::OrgJrubyOrgObjectwebAsmUtil.method_missing
+  0.01        0.01        0.00          48  Module#initialize_copy
+  0.01        0.00        0.01           5  Java::Java.method_missing
+  0.01        0.00        0.01         127  Object.method_added
+  0.01        0.01        0.00           1  FFI::Function.new
+  0.01        0.01        0.00         185  String#=~
+  0.01        0.00        0.00          30  Module#module_eval
+  0.01        0.00        0.01           2  Java::OrgJrubyOrgObjectwebAsm.method_missing
+  0.01        0.00        0.01           1  Module#attr
+  0.01        0.01        0.00           1  Win32API(singleton)#call
+  0.01        0.00        0.01           2  Java::OrgJrubyCompiler.method_missing
+  0.01        0.00        0.01           1  Java::OrgJrubyRuntime.method_missing
+  0.00        0.00        0.00          25  Gem::Deprecate.deprecate
+  0.00        0.00        0.00          17  Module#include
+  0.00        0.00        0.00           1  Java::OrgJrubyLexerYacc.method_missing
+  0.00        0.00        0.00         313  Kernel.respond_to?
+  0.00        0.00        0.00           2  Java::JavaIo.method_missing
+  0.00        0.00        0.00           2  Java::Org.method_missing
+  0.00        0.00        0.00           1  Hash#reject
+  0.00        0.00        0.00           4  Module#module_function
+  0.00        0.00        0.00          27  JavaUtilities.get_package_module_dot_format
+  0.00        0.00        0.00          32  Module#attr_accessor
+  0.00        0.00        0.00          86  Module#alias_method
+  0.00        0.00        0.00           2  JavaInterfaceTemplate.append_features
+  0.00        0.00        0.00          90  BasicObject#!=
+  0.00        0.00        0.00          18  Kernel.java
+  0.00        0.00        0.00           1  Java::JavaUtil.method_missing
+  0.00        0.00        0.00           2  Gem::Requirement.default
+  0.00        0.00        0.00           2  Gem::Requirement#initialize
+  0.00        0.00        0.00           9  Kernel.org
+  0.00        0.00        0.00          15  Module#private
+</code></pre>
+
+<h3>JRuby Performance Tuning</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jruby -J-Djruby.thread.pooling=true --profile.flat rb/ds.rb >> profile-thread-pooling.txt 2>>&1 # 23.86 secs
+</span><span class='line'>jruby -J-Djruby.fiber.coroutines=true --profile.flat rb/ds.rb >> profile-fiber-coroutines.txt 2>>&1 # error
+</span><span class='line'>jruby --fast --profile.flat rb/ds.rb >> profile-fast.txt 2>>&1 # error
+</span><span class='line'>jruby --server --profile.flat rb/ds.rb >> profile-server.txt 2>>&1 # 13.46 secs
+</span><span class='line'>jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --profile.flat rb/ds.rb >> profile-heap-space.txt 2>>&1 # 21.11
+</span><span class='line'>jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --server --profile.flat rb/ds.rb >> profile-heap-space-server.txt 2>>&1 # 10.58</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Reference</h3>
+
+
+<ul>
+    <ul>
+        <li><a href="https://github.com/jruby/jruby/wiki/PerformanceTuning">Official JRuby Performance Tuning Page</a></li>
+        <li><a href="http://stackoverflow.com/questions/10252293/jruby-performance">Stack Overflow: JRuby Performance</a></li>
+        <li><a href="http://programmingzen.com/2007/12/03/the-great-ruby-shootout/">The Great Ruby Shootout</a></li>
+    </ul>
+</ul>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-11T14:42:00-04:00" pubdate data-updated="true">Jun 11<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/jruby/'>jruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/" data-via="" data-counturl="http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/" title="Next Post: Installation Steps: VirtualBox, Ubuntu, Git, & Octopress">Installation Steps: VirtualBox, Ubuntu, Git, & Octopress &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/ruby-sql-injection/">Ruby SQL Injection & Security Vulnerabilities</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/ruby-framework/">Ruby Framework</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/jruby-deploy/">JRuby Deployment</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/12/virtualbox-ubuntu-git-octopress-install/">Installation Steps: VirtualBox, Ubuntu, Git, & Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/11/ruby-java-vfp-performance/">Performance Comparison: JRuby, Java & VFP</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

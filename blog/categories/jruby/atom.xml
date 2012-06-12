@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jruby | My Octopress Blog]]></title>
+  <link href="http://lydiachung.github.com/blog/categories/jruby/atom.xml" rel="self"/>
+  <link href="http://lydiachung.github.com/"/>
+  <updated>2012-06-12T16:52:47-04:00</updated>
+  <id>http://lydiachung.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Performance Comparison: JRuby, Java & VFP]]></title>
+    <link href="http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/"/>
+    <updated>2012-06-11T14:42:00-04:00</updated>
+    <id>http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance</id>
+    <content type="html"><![CDATA[<table border="1">
+    <caption>ds.rb & 1 million node count</caption>
+    <tr><th>Language</th>                                                               <th>Timing</th> </tr>
+    <tr><td>Java 7</td>                                                                 <td> 1.7</td>   </tr>
+    <tr><td>JRuby 1.6 (Java 6)</td>                                         <td>13.9</td>   </tr>
+    <tr><td>JRuby 1.7 (Java 7)</td>                                         <td>14.6</td>   </tr>
+    <tr><td>JRuby 1.7 w/ invokedynamic (Java 7)</td>        <td>14.9</td>   </tr>
+    <tr><td>JRuby 1.7 w/ --server (Java 7)</td>                 <td> 8.0</td>   </tr>
+</table>
+
+
+
+
+<p></p>
+
+
+
+
+<table border="1">
+    <caption>loop.rb & 1 million node count</caption>
+    <tr><th>Language</th>                                                               <th>Timing</th> </tr>
+    <tr><td>Java 7</td>                                                                 <td>0.002</td>  </tr>
+    <tr><td>JRuby 1.6 (Java 6)</td>                                         <td>0.050</td>  </tr>
+    <tr><td>JRuby 1.7 (Java 6)</td>                                         <td>0.082</td>  </tr>
+    <tr><td>JRuby 1.7 (Java 7)</td>                                         <td>0.089</td>  </tr>
+    <tr><td>JRuby 1.7 w/ invokedynamic (Java 7)</td>        <td>0.089</td>  </tr>
+</table>
+
+
+
+
+<p></p>
+
+
+<p><a href="https://github.com/areteinc/ds">source code</a></p>
+
+<p>command:
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jruby --profile.flat ds.rb >> profile.txt 2>>&amp;1</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>output result:
+     total        self    children       calls  method
+     -----        ----    --------       -----  ------
+     21.36       10.61       10.75           1  DS.run
+      9.02        0.36        8.66     1000000  InvNode#CalcDS
+      8.66        8.66        0.00     1000000  DS.CalcDS
+      1.72        0.35        1.37     1000015  Class#new
+      1.34        1.24        0.10     1000000  InvNode#initialize
+      0.89        0.05        0.85          64  Kernel.require
+      0.60        0.13        0.47          14  Kernel.load
+      0.43        0.00        0.43          18  Kernel.require
+      0.12        0.12        0.01          30  JavaUtilities.get_proxy_or_package_under_package
+      0.10        0.10        0.00     1000003  BasicObject#initialize
+      0.05        0.00        0.04           6  Java::OrgJruby.method_missing
+      0.05        0.05        0.00         267  Class#inherited
+      0.03        0.03        0.00           1  Time.now
+      0.03        0.03        0.00           4  Float#to_s
+      0.03        0.01        0.02           7  Array#each
+      0.02        0.00        0.02           1  Java::OrgJrubyCompilerImpl.method_missing
+      0.02        0.02        0.00           2  Array#initialize
+      0.01        0.00        0.01          61  Object.method_added
+      0.01        0.00        0.01           1  Win32API#initialize
+      0.01        0.00        0.01           1  Java::OrgJrubyOrgObjectwebAsmUtil.method_missing
+      0.01        0.01        0.00          48  Module#initialize_copy
+      0.01        0.00        0.01           5  Java::Java.method_missing
+      0.01        0.00        0.01         127  Object.method_added
+      0.01        0.01        0.00           1  FFI::Function.new
+      0.01        0.01        0.00         185  String#=~
+      0.01        0.00        0.00          30  Module#module_eval
+      0.01        0.00        0.01           2  Java::OrgJrubyOrgObjectwebAsm.method_missing
+      0.01        0.00        0.01           1  Module#attr
+      0.01        0.01        0.00           1  Win32API(singleton)#call
+      0.01        0.00        0.01           2  Java::OrgJrubyCompiler.method_missing
+      0.01        0.00        0.01           1  Java::OrgJrubyRuntime.method_missing
+      0.00        0.00        0.00          25  Gem::Deprecate.deprecate
+      0.00        0.00        0.00          17  Module#include
+      0.00        0.00        0.00           1  Java::OrgJrubyLexerYacc.method_missing
+      0.00        0.00        0.00         313  Kernel.respond_to?
+      0.00        0.00        0.00           2  Java::JavaIo.method_missing
+      0.00        0.00        0.00           2  Java::Org.method_missing
+      0.00        0.00        0.00           1  Hash#reject
+      0.00        0.00        0.00           4  Module#module_function
+      0.00        0.00        0.00          27  JavaUtilities.get_package_module_dot_format
+      0.00        0.00        0.00          32  Module#attr_accessor
+      0.00        0.00        0.00          86  Module#alias_method
+      0.00        0.00        0.00           2  JavaInterfaceTemplate.append_features
+      0.00        0.00        0.00          90  BasicObject#!=
+      0.00        0.00        0.00          18  Kernel.java
+      0.00        0.00        0.00           1  Java::JavaUtil.method_missing
+      0.00        0.00        0.00           2  Gem::Requirement.default
+      0.00        0.00        0.00           2  Gem::Requirement#initialize
+      0.00        0.00        0.00           9  Kernel.org
+      0.00        0.00        0.00          15  Module#private
+</p>
+
+<h3>JRuby Performance Tuning</h3>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jruby -J-Djruby.thread.pooling=true --profile.flat rb/ds.rb >> profile-thread-pooling.txt 2>>&amp;1 # 23.86 secs
+</span><span class='line'>jruby -J-Djruby.fiber.coroutines=true --profile.flat rb/ds.rb >> profile-fiber-coroutines.txt 2>>&amp;1 # error
+</span><span class='line'>jruby --fast --profile.flat rb/ds.rb >> profile-fast.txt 2>>&amp;1 # error
+</span><span class='line'>jruby --server --profile.flat rb/ds.rb >> profile-server.txt 2>>&amp;1 # 13.46 secs
+</span><span class='line'>jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --profile.flat rb/ds.rb >> profile-heap-space.txt 2>>&amp;1 # 21.11
+</span><span class='line'>jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --server --profile.flat rb/ds.rb >> profile-heap-space-server.txt 2>>&amp;1 # 10.58</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Reference</h3>
+
+
+<ul>
+    <ul>
+        <li><a href="https://github.com/jruby/jruby/wiki/PerformanceTuning">Official JRuby Performance Tuning Page</a></li>
+        <li><a href="http://stackoverflow.com/questions/10252293/jruby-performance">Stack Overflow: JRuby Performance</a></li>
+        <li><a href="http://programmingzen.com/2007/12/03/the-great-ruby-shootout/">The Great Ruby Shootout</a></li>
+    </ul>
+</ul>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>
