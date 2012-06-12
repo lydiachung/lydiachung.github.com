@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://lydiachung.github.com/atom.xml" rel="self"/>
   <link href="http://lydiachung.github.com/"/>
-  <updated>2012-06-12T11:47:20-04:00</updated>
+  <updated>2012-06-12T16:40:29-04:00</updated>
   <id>http://lydiachung.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby SQL Injection & Security Vulnerabilities]]></title>
+    <link href="http://lydiachung.github.com/blog/2012/06/12/ruby-sql-injection/"/>
+    <updated>2012-06-12T14:18:00-04:00</updated>
+    <id>http://lydiachung.github.com/blog/2012/06/12/ruby-sql-injection</id>
+    <content type="html"><![CDATA[<p>Today, I spent sometime reading some articles related to SQL injection issues in Ruby.</p>
+
+<ul>
+    <ul>
+        <li><a href="http://www.rorsecurity.info/2007/05/19/sql-injection/">SQL Injection</a>: Rails.</li>
+        <li><a href="http://www.rorsecurity.info/2008/09/08/sql-injection-issue-in-limit-and-offset-parameter/">SQL Injection issue in :limit and :offset parameter</a>: Rails.</li>
+        <li><a href="https://groups.google.com/forum/?fromgroups#!topic/rubyonrails-security/dUaiOOGWL1k">SQL Injection Vulnerability in Ruby on Rails (CVE-2012-2661)</a>: Rails</li>
+        <li><a href="http://brakemanscanner.org/docs/warning_types/sql_injection/index.html">SQL Injection</a>: Rails</li>
+        <li><a href="http://erlend.oftedal.no/blog/?blogid=20">[Security] Avoiding SQL injection and XSS in your Ruby on Rails application</a>: Rails</li>
+        <li><a href="http://xforce.iss.net/xforce/xfdb/45109">Ruby on Rails ActiveRecord SQL injection</a>: Rails</li>
+        <li><a href="http://news.softpedia.com/news/Critical-SQL-Injection-Vulnerability-Fixed-with-Ruby-on-Rails-3-2-5-273202.shtml">Critical SQL Injection Vulnerability Fixed with Ruby on Rails 3.2.5</a>: Rails</li>
+        <li><a href="http://arstechnica.com/business/2012/03/hacker-commandeers-github-to-prove-vuln-in-ruby/">Hacker commandeers GitHub to prove Rails vulnerability</a>: Rails</li>
+    </ul>
+</ul>
+
+
+<p>Below are a list of vulnerabilities posted on <a href="http://www.ruby-lang.org/en/security/">Official Ruby Security Page</a>:</p>
+
+<ul>
+    <ul>
+        <li><a href="http://www.ruby-lang.org/en/news/2011/02/18/exception-methods-can-bypass-safe/">Exception methods can bypass $SAFE</a>: fixed in 1.9.3</li>
+        <li><a href="http://www.ruby-lang.org/en/news/2011/02/18/fileutils-is-vulnerable-to-symlink-race-attacks/">FileUtils is vulnerable to symlink race attacks</a>: fixed in 1.9.3</li>
+        <li><a href="http://www.ruby-lang.org/en/news/2010/08/16/xss-in-webrick-cve-2010-0541/">XSS in WEBrick (CVE-2010-0541)</a>: fixed in 1.9.3</li>
+        <li><a href="http://www.ruby-lang.org/en/news/2010/07/02/ruby-1-9-1-p429-is-released/">Buffer over-run in ARGF.inplace_mode=</a>: fixed in 1.9.3</li>
+        <li><a href="http://www.ruby-lang.org/en/news/2010/01/10/webrick-escape-sequence-injection//">WEBrick has an Escape Sequence Injection vulnerability</a>: fixed in 1.9.3</li>
+    </ul>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Framework]]></title>
+    <link href="http://lydiachung.github.com/blog/2012/06/12/ruby-framework/"/>
+    <updated>2012-06-12T13:33:00-04:00</updated>
+    <id>http://lydiachung.github.com/blog/2012/06/12/ruby-framework</id>
+    <content type="html"><![CDATA[<p><img src="./docs/2012-06-11-ruby-framework-chart.png"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JRuby Deployment]]></title>
+    <link href="http://lydiachung.github.com/blog/2012/06/12/jruby-deploy/"/>
+    <updated>2012-06-12T13:31:00-04:00</updated>
+    <id>http://lydiachung.github.com/blog/2012/06/12/jruby-deploy</id>
+    <content type="html"><![CDATA[<h3>Development</h3>
+
+
+<p>WEBrick: easy, lightweight</p>
+
+<h3>Testing</h3>
+
+
+<p>Warbler + Tomcat: standard war file, easy to install server (no need to use trinidad)</p>
+
+<h3>Web Server & Application Server</h3>
+
+
+<p>Web server handles the HTTP protocol.</p>
+
+
+<p>Application server exposes business logic to client applications through various protocols, possibly including HTTP.</p>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Installation Steps: VirtualBox, Ubuntu, Git, & Octopress]]></title>
@@ -126,7 +199,41 @@
     <link href="http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/"/>
     <updated>2012-06-11T14:42:00-04:00</updated>
     <id>http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/areteinc/ds">source code</a></p>
+    <content type="html"><![CDATA[<table border="1">
+    <caption>ds.rb & 1 million node count</caption>
+    <tr><th>Language</th>                                                               <th>Timing</th> </tr>
+    <tr><td>Java 7</td>                                                                 <td> 1.7</td>   </tr>
+    <tr><td>JRuby 1.6 (Java 6)</td>                                         <td>13.9</td>   </tr>
+    <tr><td>JRuby 1.7 (Java 7)</td>                                         <td>14.6</td>   </tr>
+    <tr><td>JRuby 1.7 w/ invokedynamic (Java 7)</td>        <td>14.9</td>   </tr>
+    <tr><td>JRuby 1.7 w/ &#8211;server (Java 7)</td>                 <td> 8.0</td>   </tr>
+</table>
+
+
+
+
+<p></p>
+
+
+
+
+<table border="1">
+    <caption>loop.rb & 1 million node count</caption>
+    <tr><th>Language</th>                                                               <th>Timing</th> </tr>
+    <tr><td>Java 7</td>                                                                 <td>0.002</td>  </tr>
+    <tr><td>JRuby 1.6 (Java 6)</td>                                         <td>0.050</td>  </tr>
+    <tr><td>JRuby 1.7 (Java 6)</td>                                         <td>0.082</td>  </tr>
+    <tr><td>JRuby 1.7 (Java 7)</td>                                         <td>0.089</td>  </tr>
+    <tr><td>JRuby 1.7 w/ invokedynamic (Java 7)</td>        <td>0.089</td>  </tr>
+</table>
+
+
+
+
+<p></p>
+
+
+<p><a href="https://github.com/areteinc/ds">source code</a></p>
 
 <p>command:</p>
 
@@ -190,6 +297,32 @@
   0.00        0.00        0.00           9  Kernel.org
   0.00        0.00        0.00          15  Module#private
 </code></pre>
+
+<h3>JRuby Performance Tuning</h3>
+
+
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ jruby -J-Djruby.thread.pooling=true --profile.flat rb/ds.rb >> profile.txt 2>>&1 # 23.86</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h3>Reference</h3>
+
+
+<ul>
+    <ul>
+        <li><a href="https://github.com/jruby/jruby/wiki/PerformanceTuning">Official JRuby Performance Tuning Page</a></li>
+        <li><a href="http://stackoverflow.com/questions/10252293/jruby-performance">Stack Overflow: JRuby Performance</a></li>
+        <li><a href="http://programmingzen.com/2007/12/03/the-great-ruby-shootout/">The Great Ruby Shootout</a></li>
+    </ul>
+</ul>
+
+
+
 ]]></content>
   </entry>
   
