@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://lydiachung.github.com/atom.xml" rel="self"/>
   <link href="http://lydiachung.github.com/"/>
-  <updated>2012-06-12T16:52:47-04:00</updated>
+  <updated>2012-06-12T17:19:07-04:00</updated>
   <id>http://lydiachung.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -298,7 +298,7 @@
   0.00        0.00        0.00          15  Module#private
 </code></pre>
 
-<h3>JRuby Performance Tuning</h3>
+<h3>JRuby Performance Tests</h3>
 
 
 
@@ -310,12 +310,14 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jruby -J-Djruby.thread.pooling=true --profile.flat rb/ds.rb >> profile-thread-pooling.txt 2>>&1 # 23.86 secs
-</span><span class='line'>jruby -J-Djruby.fiber.coroutines=true --profile.flat rb/ds.rb >> profile-fiber-coroutines.txt 2>>&1 # error
-</span><span class='line'>jruby --fast --profile.flat rb/ds.rb >> profile-fast.txt 2>>&1 # error
-</span><span class='line'>jruby --server --profile.flat rb/ds.rb >> profile-server.txt 2>>&1 # 13.46 secs
-</span><span class='line'>jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --profile.flat rb/ds.rb >> profile-heap-space.txt 2>>&1 # 21.11
-</span><span class='line'>jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --server --profile.flat rb/ds.rb >> profile-heap-space-server.txt 2>>&1 # 10.58</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ jruby -J-Djruby.thread.pooling=true --profile.flat rb/ds.rb >> profile-thread-pooling.txt 2>>&1 # 23.86 secs
+</span><span class='line'>$ jruby -J-Djruby.fiber.coroutines=true --profile.flat rb/ds.rb >> profile-fiber-coroutines.txt 2>>&1 # error
+</span><span class='line'>$ jruby --fast --profile.flat rb/ds.rb >> profile-fast.txt 2>>&1 # error
+</span><span class='line'>$ jruby --server --profile.flat rb/ds.rb >> profile-server.txt 2>>&1 # 13.46 secs
+</span><span class='line'>$ jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --profile.flat rb/ds.rb >> profile-heap-space.txt 2>>&1 # 21.11 secs
+</span><span class='line'>$ jruby -J-Xmn512m -J-Xms1024m -J-Xmx1024m --server --profile.flat rb/ds.rb >> profile-heap-space-server.txt 2>>&1 # 10.58 secs
+</span><span class='line'>$ java rb.ds # 20 secs => compiled ruby ($ rubyc rb/ds.rb) + classpath (C:\jruby-1.7.0.preview1\lib\jruby.jar)</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -326,6 +328,8 @@
 <ul>
     <ul>
         <li><a href="https://github.com/jruby/jruby/wiki/PerformanceTuning">Official JRuby Performance Tuning Page</a></li>
+        <li><a href="http://www.engineyard.com/blog/2010/monitoring-the-jvm-heap-with-jruby/">Monitoring the JVM Heap with JRuby</a></li>
+        <li><a href="https://github.com/jruby/jruby/wiki/JRubyCompiler">JRuby Compiler</a></li>
         <li><a href="http://stackoverflow.com/questions/10252293/jruby-performance">Stack Overflow: JRuby Performance</a></li>
         <li><a href="http://programmingzen.com/2007/12/03/the-great-ruby-shootout/">The Great Ruby Shootout</a></li>
     </ul>
