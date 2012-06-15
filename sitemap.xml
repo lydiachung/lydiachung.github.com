@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://lydiachung.github.com/blog/2012/06/11/ruby-java-vfp-performance/</loc>
-        <lastmod>2012-06-12T17:18:47-04:00</lastmod>
+        <lastmod>2012-06-13T11:09:58-04:00</lastmod>
     </url>
     <url>
         <loc>
@@ -12,7 +12,7 @@
     </url>
     <url>
         <loc>http://lydiachung.github.com/blog/2012/06/12/jruby-deploy/</loc>
-        <lastmod>2012-06-12T14:04:29-04:00</lastmod>
+        <lastmod>2012-06-13T11:29:03-04:00</lastmod>
     </url>
     <url>
         <loc>http://lydiachung.github.com/blog/2012/06/12/ruby-framework/</loc>
@@ -23,11 +23,19 @@
         <lastmod>2012-06-12T15:01:05-04:00</lastmod>
     </url>
     <url>
+        <loc>http://lydiachung.github.com/blog/2012/06/13/developement-environment-setup/</loc>
+        <lastmod>2012-06-13T13:42:43-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lydiachung.github.com/blog/2012/06/15/git-workflow/</loc>
+        <lastmod>2012-06-15T15:56:10-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://lydiachung.github.com/blog/archives/</loc>
-        <lastmod>2012-06-12T17:18:47-04:00</lastmod>
+        <lastmod>2012-06-15T15:56:10-04:00</lastmod>
     </url>
     <url>
         <loc>http://lydiachung.github.com/</loc>
-        <lastmod>2012-06-12T17:18:47-04:00</lastmod>
+        <lastmod>2012-06-15T15:56:10-04:00</lastmod>
     </url>
 </urlset>

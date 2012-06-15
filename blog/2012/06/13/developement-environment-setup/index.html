@@ -5,11 +5,16 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ruby SQL Injection & Security Vulnerabilities - My Octopress Blog</title>
+  <title>Developement Environment Setup - My Octopress Blog</title>
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="Today, I spent sometime reading some articles related to SQL injection issues in Ruby. SQL Injection: Rails. SQL Injection issue in :limit and : &hellip;">
+  <meta name="description" content="Installing Pik Ruby version manager for Windows Terminal 1
+2
+3
+$ gem install pik
+$ pik_install d:\tools
+$ pik install jruby Reference Pik Copying &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://lydiachung.github.com/blog/2012/06/12/ruby-sql-injection/">
+  <link rel="canonical" href="http://lydiachung.github.com/blog/2012/06/13/developement-environment-setup/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ruby SQL Injection & Security Vulnerabilities</h1>
+      <h1 class="entry-title">Developement Environment Setup</h1>
     
     
       <p class="meta">
@@ -83,41 +88,44 @@
   
 
 
-<time datetime="2012-06-12T14:18:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2012</time>
+<time datetime="2012-06-13T13:38:00-04:00" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Today, I spent sometime reading some articles related to SQL injection issues in Ruby.</p>
-
-<ul>
-    <ul>
-        <li><a href="http://www.rorsecurity.info/2007/05/19/sql-injection/">SQL Injection</a>: Rails.</li>
-        <li><a href="http://www.rorsecurity.info/2008/09/08/sql-injection-issue-in-limit-and-offset-parameter/">SQL Injection issue in :limit and :offset parameter</a>: Rails.</li>
-        <li><a href="https://groups.google.com/forum/?fromgroups#!topic/rubyonrails-security/dUaiOOGWL1k">SQL Injection Vulnerability in Ruby on Rails (CVE-2012-2661)</a>: Rails</li>
-        <li><a href="http://brakemanscanner.org/docs/warning_types/sql_injection/index.html">SQL Injection</a>: Rails</li>
-        <li><a href="http://erlend.oftedal.no/blog/?blogid=20">[Security] Avoiding SQL injection and XSS in your Ruby on Rails application</a>: Rails</li>
-        <li><a href="http://xforce.iss.net/xforce/xfdb/45109">Ruby on Rails ActiveRecord SQL injection</a>: Rails</li>
-        <li><a href="http://news.softpedia.com/news/Critical-SQL-Injection-Vulnerability-Fixed-with-Ruby-on-Rails-3-2-5-273202.shtml">Critical SQL Injection Vulnerability Fixed with Ruby on Rails 3.2.5</a>: Rails</li>
-        <li><a href="http://arstechnica.com/business/2012/03/hacker-commandeers-github-to-prove-vuln-in-ruby/">Hacker commandeers GitHub to prove Rails vulnerability</a>: Rails</li>
-    </ul>
-</ul>
+<div class="entry-content"><h3>Installing Pik</h3>
 
 
-<p>Below are a list of vulnerabilities posted on <a href="http://www.ruby-lang.org/en/security/">Official Ruby Security Page</a>:</p>
+<h4>Ruby version manager for Windows</h4>
 
-<ul>
-    <ul>
-        <li><a href="http://www.ruby-lang.org/en/news/2011/02/18/exception-methods-can-bypass-safe/">Exception methods can bypass $SAFE</a>: fixed in 1.9.3</li>
-        <li><a href="http://www.ruby-lang.org/en/news/2011/02/18/fileutils-is-vulnerable-to-symlink-race-attacks/">FileUtils is vulnerable to symlink race attacks</a>: fixed in 1.9.3</li>
-        <li><a href="http://www.ruby-lang.org/en/news/2010/08/16/xss-in-webrick-cve-2010-0541/">XSS in WEBrick (CVE-2010-0541)</a>: fixed in 1.9.3</li>
-        <li><a href="http://www.ruby-lang.org/en/news/2010/07/02/ruby-1-9-1-p429-is-released/">Buffer over-run in ARGF.inplace_mode=</a>: fixed in 1.9.3</li>
-        <li><a href="http://www.ruby-lang.org/en/news/2010/01/10/webrick-escape-sequence-injection//">WEBrick has an Escape Sequence Injection vulnerability</a>: fixed in 1.9.3</li>
-    </ul>
-</ul>
 
+
+
+<figure class='code'><figcaption><span>Terminal </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install pik
+</span><span class='line'>$ pik_install d:\tools
+</span><span class='line'>$ pik install jruby</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h5>Reference</h5>
+
+
+<p><a href="https://github.com/vertiginous/pik">Pik</a></p>
+
+<h3>Copying odbc6.jar</h3>
+
+
+<h4>Oracle ODBC driver</h4>
+
+
+<p>Copy odbc6.jar to C:\jruby-1.7.0.preview1\lib folder.</p>
 </div>
 
 
@@ -140,7 +148,7 @@
   
 
 
-<time datetime="2012-06-12T14:18:00-04:00" pubdate data-updated="true">Jun 12<span>th</span>, 2012</time>
+<time datetime="2012-06-13T13:38:00-04:00" pubdate data-updated="true">Jun 13<span>th</span>, 2012</time>
       
 
 
@@ -148,7 +156,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://lydiachung.github.com/blog/2012/06/12/ruby-sql-injection/" data-via="" data-counturl="http://lydiachung.github.com/blog/2012/06/12/ruby-sql-injection/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://lydiachung.github.com/blog/2012/06/13/developement-environment-setup/" data-via="" data-counturl="http://lydiachung.github.com/blog/2012/06/13/developement-environment-setup/" >Tweet</a>
   
   
   
@@ -157,10 +165,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/06/12/ruby-framework/" title="Previous Post: Ruby Framework">&laquo; Ruby Framework</a>
+        <a class="basic-alignment left" href="/blog/2012/06/12/ruby-sql-injection/" title="Previous Post: Ruby SQL Injection & Security Vulnerabilities">&laquo; Ruby SQL Injection & Security Vulnerabilities</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/06/13/developement-environment-setup/" title="Next Post: Developement Environment Setup">Developement Environment Setup &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/06/15/git-workflow/" title="Next Post: Git Workflow">Git Workflow &raquo;</a>
       
     </p>
   </footer>
