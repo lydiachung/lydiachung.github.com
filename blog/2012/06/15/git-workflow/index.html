@@ -9,10 +9,10 @@
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="gitdia status 1
+  <meta name="description" content="Workflow Displaying Current Status gitdia status 1
 2
 $ git branch # display current branch
-$ git status # display modified files both staged and unstaged gitdia create topic branch &hellip;">
+$ git status # display modified files (committed, staged &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,37 +93,60 @@ $ git status # display modified files both staged and unstaged gitdia create top
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><h3>Workflow</h3>
+
+
+<p><img src="./docs/2012-06-15-workflow-chart.jpg"></p>
+
+<h4>Displaying Current Status</h4>
+
+
+
 
 <figure class='code'><figcaption><span>gitdia status </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch # display current branch
-</span><span class='line'>$ git status # display modified files both staged and unstaged</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>$ git status # display modified files (committed, staged and unstaged)</span></code></pre></td></tr></table></div></figure>
 
 
 
+
+<h4>Creating Branch</h4>
+
+
+<p>Create a new branch and push to share with other developers.</p>
 
 <figure class='code'><figcaption><span>gitdia create topic branch topic-* </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash # save local changes (stash doesn't stash untracked files)
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash --index # save local changes (stash doesn't stash untracked files)
 </span><span class='line'>$ git checkout -b topic-* develop # create topic branch & switch to topic branch
 </span><span class='line'>$ git push origin topic-* # share new branch</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<h4>Switching between Branches</h4>
+
+
+<p>Auto stash to avoid the trouble of committing. Auto reapply stashed changes to restore working tree the previous status.</p>
+
 <figure class='code'><figcaption><span>gitdia swtich branch topic-* </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash # save local changes
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash --index # save local changes
 </span><span class='line'>$ git checkout topic-* # switch to topic branch
-</span><span class='line'>$ git stash apply # re-apply local changes
+</span><span class='line'>$ git stash apply --index # re-apply local changes
 </span><span class='line'>$ git status # status doesn't show stashed changes</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h4>Staging Changes</h4>
 
 
 
@@ -135,6 +158,11 @@ $ git status # display modified files both staged and unstaged gitdia create top
 
 
 
+<h4>Unstaging Changes</h4>
+
+
+
+
 <figure class='code'><figcaption><span>gitdia unstage xxx </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout xxx</span></code></pre></td></tr></table></div></figure>
@@ -142,9 +170,31 @@ $ git status # display modified files both staged and unstaged gitdia create top
 
 
 
+<h4>Committing Changes</h4>
+
+
+<p>Commit in order to share the changes with other developers.</p>
+
 <figure class='code'><figcaption><span>gitdia commit </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ git commit -m "commit message..." #</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h4>Diffing</h4>
+
+
+<p>Show differences since creating the branch. However, there might be needs to show only staged and unstaged changes.</p>
+
+<figure class='code'><figcaption><span>gitdia diff </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git diff # show all changed files (committed, staged and unstaged)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h4>Pushing</h4>
 
 
 
@@ -156,6 +206,11 @@ $ git status # display modified files both staged and unstaged gitdia create top
 
 
 
+<h4>Merging Branches</h4>
+
+
+<p>Consolidate all commits in topic branch to one and not auto commit when merge into develop branch to allow further changes during code review. Question: do we prefer auto commit?</p>
+
 <figure class='code'><figcaption><span>gitdia merge branch topic-* </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -163,17 +218,22 @@ $ git status # display modified files both staged and unstaged gitdia create top
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash # save local changes
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash --index # save local changes
 </span><span class='line'>$ # git checkout topic-* # switch to topic-* branch
 </span><span class='line'>$ # git commit -m "commit topic-* before code review" # commit topic-* branch changes
 </span><span class='line'>$ git checkout develop # switch to develop branch
 </span><span class='line'>$ git pull # get lastest version of develop branch
-</span><span class='line'>$ git merge --no-commit topic-* # merge develop branch with topic branch</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>$ git merge --no-ff --no-commit topic-* # merge develop branch with topic branch</span></code></pre></td></tr></table></div></figure>
 
 
 
 
-<figure class='code'><figcaption><span>gitdia commit </span></figcaption>
+<h4>Commiting Branch</h4>
+
+
+<p>Hopefully, we can integrate it with JQuo and update point, status, description, file changed, and comments during this step.</p>
+
+<figure class='code'><figcaption><span>gitdia commit branch </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -183,6 +243,17 @@ $ git status # display modified files both staged and unstaged gitdia create top
 
 
 
+
+<h4>TODO</h4>
+
+
+<p>be able to send an email to code reviewer. In the email, includes all the changes (or github branch link). After review, the author can merge and commit. (this is for very small changes)
+commit msg -
+title:
+author:
+reviewer:
+task description:
+commit message:</p>
 </div>
 
 
@@ -225,6 +296,8 @@ $ git status # display modified files both staged and unstaged gitdia create top
         <a class="basic-alignment left" href="/blog/2012/06/13/developement-environment-setup/" title="Previous Post: Developement Environment Setup">&laquo; Developement Environment Setup</a>
       
       
+        <a class="basic-alignment right" href="/blog/2012/06/25/websocket/" title="Next Post: websocket">websocket &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -238,6 +311,14 @@ $ git status # display modified files both staged and unstaged gitdia create top
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/06/27/dex-project-structure/">DEX Project Structure</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/25/websocket/">websocket</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/15/git-workflow/">Git Workflow</a>
       </li>
     
@@ -247,14 +328,6 @@ $ git status # display modified files both staged and unstaged gitdia create top
     
       <li class="post">
         <a href="/blog/2012/06/12/ruby-sql-injection/">Ruby SQL Injection & Security Vulnerabilities</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/12/ruby-framework/">Ruby Framework</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/12/jruby-deploy/">JRuby Deployment</a>
       </li>
     
   </ul>

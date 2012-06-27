@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://lydiachung.github.com/atom.xml" rel="self"/>
   <link href="http://lydiachung.github.com/"/>
-  <updated>2012-06-15T15:56:11-04:00</updated>
+  <updated>2012-06-27T10:17:32-04:00</updated>
   <id>http://lydiachung.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,41 +14,153 @@
 
   
   <entry>
+    <title type="html"><![CDATA[DEX Project Structure]]></title>
+    <link href="http://lydiachung.github.com/blog/2012/06/27/dex-project-structure/"/>
+    <updated>2012-06-27T10:16:00-04:00</updated>
+    <id>http://lydiachung.github.com/blog/2012/06/27/dex-project-structure</id>
+    <content type="html"><![CDATA[<h3>Folder Structure</h3>
+
+
+<p><img src="./docs/2012-06-27-dex-project-structure.jpg"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[websocket]]></title>
+    <link href="http://lydiachung.github.com/blog/2012/06/25/websocket/"/>
+    <updated>2012-06-25T13:28:00-04:00</updated>
+    <id>http://lydiachung.github.com/blog/2012/06/25/websocket</id>
+    <content type="html"><![CDATA[<h3>Web Browsers</h3>
+
+
+<ul>
+    <ul>
+        <li>Firefox (11)</li>
+        <li>Google Chrome (16)</li>
+        <li>Safari</li>
+    </ul>
+</ul>
+
+
+
+
+<h3>Web Servers</h3>
+
+
+<ul>
+    <ul>
+        <li>Jetty</li>
+        <li>Glassfish</li>
+    </ul>
+</ul>
+
+
+
+
+<h3>Web Server Framework</h3>
+
+
+<ul>
+    <ul>
+        <li>Java
+            <ul>
+                <li>Atmosphere</li>
+                <li>jWebSocket</li>
+                <li>Stomp Websocket for HornetQ and ActiveMQ</li>
+            </ul>
+        </li>
+        <li>JavaScript
+            <ul>
+                <li></li>
+                <li>Socket.IO</li>
+            </ul>
+        </li>
+        <li>Ruby
+            <ul>
+                <li><a href="https://github.com/socky/socky-server-ruby">Socky</a></li>
+                <li><a href="https://github.com/igrigorik/em-websocket">EventMachine</a></li>
+            </ul>
+        </li>
+    </ul>
+</ul>
+
+
+
+
+<h3>References</h3>
+
+
+<ul>
+    <ul>
+        <li><a href="http://hillert.blogspot.com/2011/07/html5-websockets-for-jvm-developers.html">HTML5 WebSockets for JVM Developers</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Git Workflow]]></title>
     <link href="http://lydiachung.github.com/blog/2012/06/15/git-workflow/"/>
     <updated>2012-06-15T15:09:00-04:00</updated>
     <id>http://lydiachung.github.com/blog/2012/06/15/git-workflow</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<h3>Workflow</h3>
+
+
+<p><img src="./docs/2012-06-15-workflow-chart.jpg"></p>
+
+<h4>Displaying Current Status</h4>
+
+
+
 
 <figure class='code'><figcaption><span>gitdia status </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch # display current branch
-</span><span class='line'>$ git status # display modified files both staged and unstaged</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>$ git status # display modified files (committed, staged and unstaged)</span></code></pre></td></tr></table></div></figure>
 
 
 
+
+<h4>Creating Branch</h4>
+
+
+<p>Create a new branch and push to share with other developers.</p>
 
 <figure class='code'><figcaption><span>gitdia create topic branch topic-* </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash # save local changes (stash doesn't stash untracked files)
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash --index # save local changes (stash doesn't stash untracked files)
 </span><span class='line'>$ git checkout -b topic-* develop # create topic branch & switch to topic branch
 </span><span class='line'>$ git push origin topic-* # share new branch</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<h4>Switching between Branches</h4>
+
+
+<p>Auto stash to avoid the trouble of committing. Auto reapply stashed changes to restore working tree the previous status.</p>
+
 <figure class='code'><figcaption><span>gitdia swtich branch topic-* </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash # save local changes
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash --index # save local changes
 </span><span class='line'>$ git checkout topic-* # switch to topic branch
-</span><span class='line'>$ git stash apply # re-apply local changes
+</span><span class='line'>$ git stash apply --index # re-apply local changes
 </span><span class='line'>$ git status # status doesn't show stashed changes</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h4>Staging Changes</h4>
 
 
 
@@ -60,6 +172,11 @@
 
 
 
+<h4>Unstaging Changes</h4>
+
+
+
+
 <figure class='code'><figcaption><span>gitdia unstage xxx </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout xxx</span></code></pre></td></tr></table></div></figure>
@@ -67,9 +184,31 @@
 
 
 
+<h4>Committing Changes</h4>
+
+
+<p>Commit in order to share the changes with other developers.</p>
+
 <figure class='code'><figcaption><span>gitdia commit </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ git commit -m "commit message..." #</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h4>Diffing</h4>
+
+
+<p>Show differences since creating the branch. However, there might be needs to show only staged and unstaged changes.</p>
+
+<figure class='code'><figcaption><span>gitdia diff </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git diff # show all changed files (committed, staged and unstaged)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h4>Pushing</h4>
 
 
 
@@ -81,6 +220,11 @@
 
 
 
+<h4>Merging Branches</h4>
+
+
+<p>Consolidate all commits in topic branch to one and not auto commit when merge into develop branch to allow further changes during code review. Question: do we prefer auto commit?</p>
+
 <figure class='code'><figcaption><span>gitdia merge branch topic-* </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -88,17 +232,22 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash # save local changes
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash --index # save local changes
 </span><span class='line'>$ # git checkout topic-* # switch to topic-* branch
 </span><span class='line'>$ # git commit -m "commit topic-* before code review" # commit topic-* branch changes
 </span><span class='line'>$ git checkout develop # switch to develop branch
 </span><span class='line'>$ git pull # get lastest version of develop branch
-</span><span class='line'>$ git merge --no-commit topic-* # merge develop branch with topic branch</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>$ git merge --no-ff --no-commit topic-* # merge develop branch with topic branch</span></code></pre></td></tr></table></div></figure>
 
 
 
 
-<figure class='code'><figcaption><span>gitdia commit </span></figcaption>
+<h4>Commiting Branch</h4>
+
+
+<p>Hopefully, we can integrate it with JQuo and update point, status, description, file changed, and comments during this step.</p>
+
+<figure class='code'><figcaption><span>gitdia commit branch </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -108,6 +257,17 @@
 
 
 
+
+<h4>TODO</h4>
+
+
+<p>be able to send an email to code reviewer. In the email, includes all the changes (or github branch link). After review, the author can merge and commit. (this is for very small changes)
+commit msg -
+title:
+author:
+reviewer:
+task description:
+commit message:</p>
 ]]></content>
   </entry>
   
