@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://lydiachung.github.com/atom.xml" rel="self"/>
   <link href="http://lydiachung.github.com/"/>
-  <updated>2012-06-27T10:17:32-04:00</updated>
+  <updated>2012-06-27T10:19:53-04:00</updated>
   <id>http://lydiachung.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<h3>Folder Structure</h3>
 
 
-<p><img src="./docs/2012-06-27-dex-project-structure.jpg"></p>
+<p><img src="http://lydiachung.github.com/docs/2012-06-27-dex-project-structure.jpg"></p>
 ]]></content>
   </entry>
   
